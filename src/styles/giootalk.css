@@ -1,0 +1,276 @@
+:root {
+  --bg-app: #090b10;
+  --bg-card: #121620;
+  --bg-card-hover: #181e2c;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --text-main: #f5f7fa;
+  --text-muted: #9aa4b2;
+  --orange-neon: #ff7a1a;
+  --cyan-neon: #18e0ff;
+}
+
+.gioo-shell {
+  min-height: 100dvh;
+  background: radial-gradient(circle at top, rgba(24, 224, 255, 0.08), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(255, 122, 26, 0.09), transparent 45%),
+    var(--bg-app);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.gioo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gioo-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gioo-logo-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 122, 26, 0.45);
+  box-shadow: 0 0 16px rgba(24, 224, 255, 0.2);
+}
+
+.gioo-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--orange-neon), var(--cyan-neon));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gioo-subtitle {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.gioo-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gioo-icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 54px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.gioo-icon-btn.active {
+  border-color: var(--cyan-neon);
+  box-shadow: 0 0 10px rgba(24, 224, 255, 0.25);
+}
+
+.gioo-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(18, 22, 32, 0.9);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.gioo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.gioo-section-title {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.gioo-channels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gioo-channel-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.15s ease;
+}
+
+.gioo-channel-card.selected {
+  border-color: var(--orange-neon);
+  background: var(--bg-card-hover);
+}
+
+.gioo-channel-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.gioo-channel-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.gioo-live-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(24, 224, 255, 0.14);
+  color: var(--cyan-neon);
+  border: 1px solid rgba(24, 224, 255, 0.35);
+}
+
+.gioo-drawer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.gioo-drawer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 8px;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gioo-drawer-box.contacts-box {
+  border-color: rgba(24, 224, 255, 0.35);
+}
+
+.gioo-ptt-stage {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 12px 24px;
+  border-radius: 24px;
+  background: rgba(18, 22, 32, 0.75);
+  border: 1px solid var(--border-subtle);
+}
+
+.gioo-wave-container {
+  width: 100%;
+  max-width: 280px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.gioo-wave-bar {
+  width: 5px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--orange-neon), var(--cyan-neon));
+  transition: height 0.06s ease;
+}
+
+.gioo-ptt-ring {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(from 0deg, var(--orange-neon), var(--cyan-neon), var(--orange-neon));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.2s ease;
+}
+
+.gioo-ptt-ring.talking {
+  transform: scale(1.06);
+  animation: gioo-spin 1.8s linear infinite;
+  box-shadow: 0 0 28px rgba(255, 122, 26, 0.45), 0 0 36px rgba(24, 224, 255, 0.4);
+}
+
+@keyframes gioo-spin {
+  to {
+    transform: scale(1.06) rotate(360deg);
+  }
+}
+
+.gioo-ptt-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #0d111a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  font-size: 2rem;
+}
+
+.gioo-ptt-ring.talking .gioo-ptt-core {
+  animation: gioo-unspin 1.8s linear infinite;
+}
+
+@keyframes gioo-unspin {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.gioo-ptt-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-align: center;
+}
