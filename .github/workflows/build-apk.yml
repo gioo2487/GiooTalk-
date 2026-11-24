@@ -9,18 +9,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
-      - uses: android-actions/setup-android@v3
-      - name: Build Debug APK
+      - name: Build Web and Android APK
         run: |
-          cd Android
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          export ANDROID_HOME=/usr/local/lib/android/sdk
+          export ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses || true
+          npm install
+          npm run build
+          if [ ! -f "Android/gradlew" ] && [ ! -f "android/gradlew" ]; then
+            npm install @capacitor/core @capacitor/cli @capacitor/android
+            npx cap init GiooTalk com.giootalk.app --web-dir=dist
+            npx cap add android
+            ./android/gradlew -p android assembleDebug
+          elif [ -f "Android/gradlew" ]; then
+            cd Android && chmod +x gradlew && ./gradlew assembleDebug
+          else
+            cd android && chmod +x gradlew && ./gradlew assembleDebug
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: giootalk-flick-apk
-          path: Android/app/build/outputs/apk/debug/app-debug.apk
-          
+          path: '**/app/build/outputs/apk/debug/app-debug.apk'
